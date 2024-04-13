@@ -1,0 +1,98 @@
+<MyBoxLayout>:
+    orientation: 'vertical'
+    padding: dp(10)
+
+    Label:
+        text: 'Books Management System'
+        font_size: sp(30)
+        size_hint_y: None
+        height: dp(50)
+        color: 0, 0, 0, 1
+
+    BoxLayout:
+        orientation:'horizontal'
+        size_hint_y: None
+        height: dp(30)
+
+        TextInput:
+            id: id_input
+            hint_text: 'Book ID'
+            size_hint_x: 0.3
+
+        TextInput:
+            id: title_input
+            hint_text: 'Book Title'
+            size_hint_x: 0.3
+
+        TextInput:
+            id: author_input
+            hint_text: 'Book Author'
+            size_hint_x: 0.3
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: dp(30)
+        spacing: dp(10)
+
+        Button:
+            text: 'Add Book'
+            size_hint_x: 0.03
+            on_press: root.add_book()
+
+        Button:
+            text: 'Update Book'
+            size_hint_x: 0.03
+            on_press: root.update_book()
+
+        Button:
+            text: 'Delete Book'
+            size_hint_x: 0.03
+            on_press: root.delete_book()
+
+        Button:
+            text: 'Get All Books'
+            size_hint_x: 0.03
+            on_press: root.get_all_books()
+
+    Label:
+        id: message_label
+        size_hint_y: None
+        height: dp(30)
+        color: 0, 0, 0, 1
+
+    TextInput:
+        id: get_specific_input
+        hint_text: 'Enter Book ID'
+        size_hint_y: None
+        height: dp(30)
+
+    Button:
+        text: 'Get Specific Book'
+        size_hint_x: 0.2
+        size_hint_y: 0.09
+        on_press: root.get_specific_book()
+
+    RV:
+        id: rv
+        viewclass: 'CustomLabel'
+        size_hint: 1, 1
+        RecycleBoxLayout:
+            default_size: None, dp(40)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
+
+    FloatLayout:
+        size_hint_y: None
+        height: dp(50)
+        Button:
+            text: 'Close'
+            size_hint: None, None
+            size: dp(100), dp(40)
+            pos_hint: {'x': 0, 'y': 0}
+            on_press: root.close_app()
+
+<CustomLabel>:
+    color: 0, 0, 0, 1
